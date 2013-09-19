@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping >
+		<class name="com.UserInfo" table="INFOMATIONS">
+        	 <id name="ID" column="USER_ID" type = "long">
+        	     <generator class="native"/>
+        	 </id>
+	        <property name="userName" type="string" column="USER_NAME" not-null="true"/>
+	        <property name="password" type="string" column="PASSWORD" />
+	        <property name="gravatar"  type="string" column="GRAVATAR" />
+	        <property name="sex"  type="string" column="SEX" />
+	        <property name="age"  type="integer" column="AGE" />
+	        <property name="realName"  type="string" column="REALNAME" />
+	        <property name="email"  type="string" column="EMAIL" />
+	        <property name="hobby"  type="string" column="HOBBY" />
+		
+	     </class>        
+</hibernate-mapping>

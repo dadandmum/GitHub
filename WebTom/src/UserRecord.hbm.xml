@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping >
+		<class name="com.UserRecord" table="RECORDS">
+        	 <id name="ID" column="USER_ID" type = "long">
+        	     <generator class="native"/>
+        	 </id>
+	        <property name="userName" type="string" column="USER_NAME" not-null="true"/>
+	        <property name="location" type="string" column="LOCATION" />
+	        <property name="time" type="string" column="TIME" not-null="true"/>
+	        <property name="wifi"  type="string" column="WIFI" />
+	        <property name="image"  type="string" column="IMAGE" />
+	        <property name="record"  type="string" column="RECORD" />
+	        <property name="description"  type="string" column="DESCRIPTION" />
+	        <property name="illuminate"  type="string" column="ILLUMINATE" />
+	        <property name="temperature"  type="string" column="TEMPERATURE" />
+	        <property name="PM25"  type="string" column="PM25" />
+	        <property name="humidity"  type="string" column="HUMIDITY" />
+		
+	     </class>        
+</hibernate-mapping>

@@ -29,9 +29,6 @@
         
 		<!-- <property name="hbm2ddl.auto">create</property>
            -->
-        <mapping resource= "UserInfo.hbm.xml"/>
-        <mapping resource= "UserRecord.hbm.xml"/>
-        <mapping resource= "UserBase.hbm.xml"/>
 
     </session-factory>
 

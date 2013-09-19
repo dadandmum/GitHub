@@ -326,6 +326,8 @@
 	var thisPage = <%=pageInteger%>;
 	var recordString = "<%=records%>";
 	var headString = "<%=heads%>";
+	var splitString = "<%=userRecordShowDAO.SPLIT_STRING%>";
+	var splitBigString = "<%=userRecordShowDAO.SPLIT_BIG_STRING%>";
 	var coreItem = "Wifi";
     var headList = new Array();
     var rowList = new Array();
@@ -448,12 +450,12 @@
 	
   	$(document).ready(function(){
   		
-  		headList = headString.split("#");
-	    rowList = recordString.split("@");
+  		headList = headString.split(splitString);
+	    rowList = recordString.split(splitBigString);
   	   	for ( var i = 0 ; i < rowList.length; ++i)
  	    { 
   	   		var items = new Array();
-  	   		items = rowList[i].split("#");
+  	   		items = rowList[i].split(splitString);
   	   		itemList.push(items)
  	    }
 

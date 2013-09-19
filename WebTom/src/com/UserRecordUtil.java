@@ -6,6 +6,8 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Random;
 
+import com.sun.org.apache.bcel.internal.generic.NEW;
+
 public class UserRecordUtil extends AbstractUserUtil {
 
 	private UserRecord userRecord;
@@ -52,10 +54,15 @@ public class UserRecordUtil extends AbstractUserUtil {
 		
 		
 		UserRecordUtil userRecordUtil = new UserRecordUtil();
-		List list = userRecordUtil.getUserList();
-		Iterator it = list.iterator();
-		while(it.hasNext()){
-			UserRecord userR = (UserRecord)it.next();
+		//List list = userRecordUtil.getUserList();
+		//Iterator it = list.iterator();
+		for( int i = 0 ; i < 1 ; ++ i ){
+			//UserRecord userR = (UserRecord)it.next();
+			UserRecord userR = new UserRecord();
+			userR.setUserName("dadandmum");
+			SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");//可以方便地修改日期格式
+			String date = dateFormat.format( new Date(System.currentTimeMillis()) ); 
+			userR.setTime(date);
 			Double px = Math.random()*120.0-60.0;
 			Double py = Math.random()*120.0;
 			userR.setLocation(px.toString()+","+py.toString());
@@ -68,7 +75,11 @@ public class UserRecordUtil extends AbstractUserUtil {
 			userR.setIlluminate(illuminate.toString());
 			Double hum = Math.random() * 20 + 15;
 			userR.setHumidity(hum.toString());
-			userRecordUtil.updateUser(userR);
+			userRecord.setImage("e.jpg");
+			userRecordUtil.saveUserRecord(userR);
+			
+			
+			
 			
 			System.out.println((userR).toString());
 		}

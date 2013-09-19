@@ -67,8 +67,7 @@
 		left: 575px;
 		buttom: 425px;
 		right: 100px;
-      	height: 58-+
-      	%;
+      	height: 58%;
       	width: 42%;
       	z-index:3;
       	
@@ -333,6 +332,8 @@
 	var thisPage = <%=pageInteger%>;
 	var recordString = "<%=records%>";
 	var headString = "<%=heads%>";
+	var splitString = "<%=userRecordShowDAO.SPLIT_STRING%>";
+	var splitBigString = "<%=userRecordShowDAO.SPLIT_BIG_STRING%>";
 	var coreItem = "Location";
     var headList = new Array();
     var rowList = new Array();
@@ -372,7 +373,6 @@
 		for ( var i = 0 ; i < headList.length ; ++i )
 			if ( headList[i] == coreItem )
 				coreNumber = i;
-		
 	   	 var table=$("<div class = \"single-table\"></div>");
 	     table.appendTo($(div));
 		/*
@@ -469,12 +469,13 @@
   		//CreateUserInfoTable("div#context");
   		
   		
-  		headList = headString.split("#");
-	    rowList = recordString.split("@");
+	var splitString = "<%=userRecordShowDAO.SPLIT_STRING%>";
+  		headList = headString.split(splitString);
+	    rowList = recordString.split(splitBigString);
   	   	for ( var i = 0 ; i < rowList.length; ++i)
  	    { 
   	   		var items = new Array();
-  	   		items = rowList[i].split("#");
+  	   		items = rowList[i].split(splitString);
   	   		itemList.push(items)
  	    }
 

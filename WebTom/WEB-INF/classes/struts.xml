@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+"http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+    
+    <package name="login"  extends="struts-default">
+        
+        <global-results>
+            <result name="ERROR">/login/Error.jsp</result>
+        </global-results>
+        <global-exception-mappings>
+            <exception-mapping result="ERROR" exception="java.lang.Exception"></exception-mapping>
+        </global-exception-mappings>
+        
+       	<action name="Register" class="com.login.Register" method="check">
+       	   <result name = "SAME_USER_NAME">
+       	       /login/RegisterError.jsp?errorMessage=The user name has been used...
+       	   </result>
+       	   <result name = "PASSWORD_UNCONFIRMED">
+       	       /login/RegisterError.jsp?errorMessage=Please confirm your password...
+       	   </result>
+       	   <result name = "USERNAME_NULL">
+       	       /login/RegisterError.jsp?errorMessage=The user name cannot be empty...
+       	   </result>
+       	   <result name = "PASSWORD_SHORT">
+       	       /login/RegisterError.jsp?errorMessage=The password is too short...
+       	   </result>
+           <result name ="SUCCESS">/login/RegisterSuccess.jsp</result>
+       	</action>
+       	
+       	<action name="InfoUpdate" class="com.man.InfoUpdate" method="update">
+       	    
+           <result name ="SUCCESS">
+               /man/InfoUpdateSuccess.jsp
+           </result>
+           <result name ="FAIL">
+               /man/InfoUpdateError.jsp
+           </result>
+       	</action>
+       	
+       	<action name="UploadGravatar" class="com.man.UploadGravatar" method="upload">
+       	      
+            <interceptor-ref name="fileUpload">  
+                <param name="allowedTypes">image/jpeg,image/png</param>  
+                <param name="maximumSize">1024*1024</param>  
+            </interceptor-ref>  
+            <interceptor-ref name="defaultStack"></interceptor-ref>
+           <result name ="SUCCESS">
+               /man/info.jsp
+           </result>
+           <result name ="FAIL">
+               /man/info.jsp
+           </result>
+       	</action>
+       	
+    </package>
+    
+    
+</struts>

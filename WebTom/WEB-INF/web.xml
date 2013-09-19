@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<web-app xmlns="http://java.sun.com/xml/ns/javaee"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://java.sun.com/xml/ns/javaee
+                      http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
+  version="3.0"
+  metadata-complete="true">
+
+
+
+	<servlet>
+	     <servlet-name>UserInfo</servlet-name>
+	     <servlet-class>com.UserInfo</servlet-class>
+	</servlet>
+	
+	<servlet>
+	     <servlet-name>UserBase</servlet-name>
+	     <servlet-class>com.UserBase</servlet-class>
+	</servlet>
+	<servlet>
+	     <servlet-name>UserRecord</servlet-name>
+	     <servlet-class>com.UserRecord</servlet-class>
+	</servlet>
+	
+	<servlet>
+	     <servlet-name>HibernateUtil</servlet-name>
+	     <servlet-class>com.HibernateUtil</servlet-class>
+	</servlet>
+	
+	<servlet>
+	     <servlet-name>UserUtil</servlet-name>
+	     <servlet-class>com.UserUtil</servlet-class>
+	</servlet>
+	<servlet>
+	     <servlet-name>AbstractUserUtil</servlet-name>
+	     <servlet-class>com.AbstractUserUtil</servlet-class>
+	</servlet>
+	<servlet>
+	     <servlet-name>UserInfoUtil</servlet-name>
+	     <servlet-class>com.UserInfoUtil</servlet-class>
+	</servlet>
+	<servlet>
+	     <servlet-name>UserRecordUtil</servlet-name>
+	     <servlet-class>com.UserInfoUtil</servlet-class>
+	</servlet>
+	<servlet>
+	     <servlet-name>UserBaseUtil</servlet-name>
+	     <servlet-class>com.UserBaseUtil</servlet-class>
+	</servlet>
+		<servlet>
+		     <servlet-name>UBUState</servlet-name>
+		     <servlet-class>com.UBUState</servlet-class>
+		</servlet>
+		<servlet>
+		     <servlet-name>UBUUpdateState</servlet-name>
+		     <servlet-class>com.UBUUpdateState</servlet-class>
+		</servlet>
+		<servlet>
+		     <servlet-name>UBUSaveState</servlet-name>
+		     <servlet-class>com.UBUSaveState</servlet-class>
+		</servlet>
+		<servlet>
+		     <servlet-name>UBUGetState</servlet-name>
+		     <servlet-class>com.UBUGetState</servlet-class>
+		</servlet>
+		<servlet>
+		     <servlet-name>UBUEmptyState</servlet-name>
+		     <servlet-class>com.UBUEmptyState</servlet-class>
+		</servlet>
+		<servlet>
+		     <servlet-name>UBUDeleteState</servlet-name>
+		     <servlet-class>com.UBUDeleteState</servlet-class>
+		</servlet>
+		<servlet>
+		     <servlet-name>UBUCheckState</servlet-name>
+		     <servlet-class>com.UBUCheckState</servlet-class>
+		</servlet>
+		
+	<!--com.login -->
+	<servlet>
+	     <servlet-name>Register</servlet-name>
+	     <servlet-class>com.Register</servlet-class>
+	</servlet>
+	
+	<!-- com.error -->
+	<servlet>
+	     <servlet-name>LoginError</servlet-name>
+	     <servlet-class>com.error.LoginError</servlet-class>
+	</servlet>
+	<servlet>
+	     <servlet-name>RegisterError</servlet-name>
+	     <servlet-class>com.error.RegisterError</servlet-class>
+	</servlet>
+	
+	<!-- com.man -->
+	<servlet>
+	     <servlet-name>UserInfoShowDAO</servlet-name>
+	     <servlet-class>com.man.UserInfoShowDAO</servlet-class>
+	</servlet>	
+	<servlet>
+	     <servlet-name>InfoUpdate</servlet-name>
+	     <servlet-class>com.man.InfoUpdate</servlet-class>
+	</servlet>	
+	<servlet>
+	     <servlet-name>UserRecordShowDAO</servlet-name>
+	     <servlet-class>com.man.UserRecordShowDAO</servlet-class>
+	</servlet>
+	<servlet>
+	     <servlet-name>UploadGravatar</servlet-name>
+	     <servlet-class>com.man.UploadGravatar</servlet-class>
+	</servlet>		
+<!-- 	<context-param>
+    	<param-name>contextConfigLocation</param-name>
+   		<param-value>/WEB-INF/classes/ApplicationContext.xml</param-value>
+  	</context-param>
+  	<listener>
+    	<listener-class>org.springframework.web.context.ContextLoaderListener
+    	</listener-class>
+  	</listener>   -->
+
+  <filter>
+       <filter-name>struts2</filter-name>
+       <filter-class>org.apache.struts2.dispatcher.ng.filter.StrutsPrepareAndExecuteFilter</filter-class>
+   </filter>
+    
+    <filter-mapping>
+        <filter-name>struts2</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+		
+</web-app>

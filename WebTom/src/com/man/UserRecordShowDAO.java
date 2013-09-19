@@ -25,6 +25,9 @@ public class UserRecordShowDAO extends ActionSupport {
 	
 	ArrayList userRecordList = new ArrayList();
 	
+	public final static String SPLIT_STRING = "X";
+	public final static String SPLIT_BIG_STRING = "@";
+	
 	void setRecord( Integer pageInteger , String delete ){
 		if ( delete == null || delete == "" )
 		{
@@ -71,7 +74,7 @@ public class UserRecordShowDAO extends ActionSupport {
 	public boolean deleteRecord( Integer pageInteger , String delete ){
 		if ( delete == null || delete.length()<1)
 			return false;
-		String deleteNumberString[] = delete.split("#");
+		String deleteNumberString[] = delete.split(SPLIT_STRING);
 		//SHOULD TEST !!!! IF IGNORE THE LAST ITEM
 		//int deleteNumberInteger[] = new int[deleteNumberString.length-1];
 		ArrayList<UserRecord> deleteRecord = new ArrayList<>();
@@ -159,14 +162,14 @@ public class UserRecordShowDAO extends ActionSupport {
 		for( int i = 0 ; i < userRecordList.size() ; ++i )
 		{
 				UserRecord userR = (UserRecord)userRecordList.get(i);
-				res += userR.getTime()+"#";
-				res += userR.getLocation()+"#";
-				res += userR.getWifi()+"#";
-				res += userR.getIlluminate()+"#";
-				res += userR.getHumidity()+"#";
-				res += userR.getPM25()	+"#";
+				res += userR.getTime()+SPLIT_STRING;
+				res += userR.getLocation()+SPLIT_STRING;
+				res += userR.getWifi()+SPLIT_STRING;
+				res += userR.getIlluminate()+SPLIT_STRING;
+				res += userR.getHumidity()+SPLIT_STRING;
+				res += userR.getPM25()	+SPLIT_STRING;
 				res += userR.getDescription()+" ";
-				res += "@";
+				res += SPLIT_BIG_STRING;
 
 		}
 		return res;
@@ -194,15 +197,15 @@ public class UserRecordShowDAO extends ActionSupport {
 		for( int i = 0 ; i < userRecordList.size() ; ++i )
 		{
 				UserRecord userR = (UserRecord)userRecordList.get(i);
-				res += userR.getTime()+"#";
-				res += userR.getLocation()+"#";
-				res += userR.getWifi()+"#";
-				res += userR.getIlluminate()+"#";
-				res += userR.getHumidity()+"#";
-				res += userR.getTemperature()	+"#";
-				res += userR.getImage()+"#";
-				res += userR.getDescription()+"#";
-				res += "@";
+				res += userR.getTime()+SPLIT_STRING;
+				res += userR.getLocation()+SPLIT_STRING;
+				res += userR.getWifi()+SPLIT_STRING;
+				res += userR.getIlluminate()+SPLIT_STRING;
+				res += userR.getHumidity()+SPLIT_STRING;
+				res += userR.getTemperature()	+SPLIT_STRING;
+				res += userR.getImage()+SPLIT_STRING;
+				res += userR.getDescription()+SPLIT_STRING;
+				res += SPLIT_BIG_STRING;
 
 		}
 		return res;
@@ -231,13 +234,13 @@ public class UserRecordShowDAO extends ActionSupport {
 	public String getHead()
 	{
 		String res = "";
-		//res += "UserName" + "#";
-		res += "Time#";
-		res += "Location#";
-		res += "Wifi#";
-		res += "Illumination#";
-		res += "Humidity#";
-		res += "Weather#";
+		//res += "UserName" + SPLIT_STRING;
+		res += "Time"+SPLIT_STRING;
+		res += "Location"+SPLIT_STRING;
+		res += "Wifi"+SPLIT_STRING;
+		res += "Illumination"+SPLIT_STRING;
+		res += "Humidity"+SPLIT_STRING;
+		res += "Weather"+SPLIT_STRING;
 		res += "Pick";
 		
 		return res;
@@ -248,11 +251,10 @@ public class UserRecordShowDAO extends ActionSupport {
 		
 		UserRecordUtil uru = new UserRecordUtil();
 
-		/*ArrayList<UserRecord> list = (ArrayList<UserRecord>)uru.getUserList();
+		ArrayList<UserRecord> list = (ArrayList<UserRecord>)uru.getUserList();
 		for( int i = 0 ; i < list.size() ; ++ i )
 			System.out.println(list.get(i).toString());
-		*/
-		
+		System.out.println(uru.getUserRecordList("dadandmum"));
 		System.out.println(urs.getImageRecord("dadandmum",0));
 
 	}

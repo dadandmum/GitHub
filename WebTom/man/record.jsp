@@ -311,15 +311,17 @@
 	var thisPage = <%=pageInteger%>;
 	var recordString = "<%=records%>";
 	var headString = "<%=heads%>";
+	var splitString = "<%=userRecordShowDAO.SPLIT_STRING%>";
+	var splitBigString = "<%=userRecordShowDAO.SPLIT_BIG_STRING%>";
 	
 	function CreateTable(div )
 	  { 
 
 	    var table=$("<table class = \"features-table\">");
 	     table.appendTo($(div));
-
+	
 	     var headList = new Array();
-	     headList = headString.split("#");
+	     headList = headString.split(splitString);
 
 		 var cellCount = 6;
 	     var thead = $("<thead></thead>");
@@ -331,7 +333,7 @@
 	    }
 	     
 	     var rowList = new Array();
-	     rowList = recordString.split("@");
+	     rowList = recordString.split(splitBigString);
 	     
 
 	     
@@ -346,7 +348,7 @@
 	        tr.appendTo(tbody);
 	        
 	    	var itemList = new Array();
-	    	itemList = rowList[i].split("#");
+	    	itemList = rowList[i].split(splitString);
 	    	var td;
 	    	for( var j = 0 ; j < itemList.length-1 ; ++ j )
 	    	{
@@ -385,6 +387,7 @@
 	}
 
 	$(document).ready(function(){
+		
 		CreateTable("div#context");
 		AddNextLastButton("div#context");
 		
@@ -407,10 +410,11 @@
 		
 		$("#deletebtn").click(function(){
 			 var str="";
+			 alert("ok");
 			 $("input[name=check]").each(function(){
 				 if ( $(this).attr('checked') )
 					 {
-			    	 	str+=$(this).val() + "#";
+			    	 	str+=$(this).val() + splitString;
 					}
 			  });
 			 window.location.href="../man/record.jsp?page="+thisPage+"&delete="+str; 
